@@ -1,6 +1,7 @@
-# Terraria-Like-Game
-<<<<<<< HEAD
-Terraria Like Game made in unity
-=======
-Terraria like game in unity
->>>>>>> ad89325f9b7418265ac1979c8b10c3208fbf4741
+# Terraria Like Game
+Terraria like game made in unity
+
+**----WARNING----**
+
+please install re-install Roboto by replacing the fonts folder with the unity package
+[Roboto Fonts](https://github.com/DAMTech1507/Roboto-unity-fonts)
