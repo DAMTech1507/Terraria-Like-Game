@@ -1,7 +1,7 @@
 # Terraria Like Game
 Terraria like game made in unity
 
-**----WARNING----**
+__CHANGE LOG__
+==============
 
-please install re-install Roboto by replacing the fonts folder with the unity package
-[Roboto Fonts](https://github.com/DAMTech1507/Roboto-unity-fonts)
+Fixed roboto fonts for uploading to github as old file size exceeded 100mb
