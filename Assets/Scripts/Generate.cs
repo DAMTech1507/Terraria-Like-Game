@@ -16,6 +16,7 @@ public class Generate : MonoBehaviour
     public Tile Diamond;
     public Tile Coal;
     public Tile Log;
+    public Tile Tree;
 
     public Tilemap TileMap;
 
@@ -39,10 +40,10 @@ public class Generate : MonoBehaviour
             distance = Random.Range(lowernum, heighernum);
             space = Random.Range(12, 20);
             int stonespace = distance - space;
- 
+            int randomAmount = Random.Range(1, 50);
             for (int j = 0; j < stonespace; j++)
             {
-                int randomAmount = Random.Range(1, 500);
+                randomAmount = Random.Range(1, 500);
                 if(randomAmount <= 25 && randomAmount > 1){
                     TileMap.SetTile(Vector3Int.FloorToInt(new Vector3(w, j)), Coal);continue;
                 }
@@ -58,6 +59,9 @@ public class Generate : MonoBehaviour
             for (int j = stonespace; j < distance; j++)
             {
                 TileMap.SetTile(Vector3Int.FloorToInt(new Vector3(w, j)), Dirt);
+            }
+            if(randomAmount >= 20){
+                TileMap.SetTile(Vector3Int.FloorToInt(new Vector3(w, distance)), Tree);
             }
             TileMap.SetTile(Vector3Int.FloorToInt(new Vector3(w, distance)), Grass);
         }

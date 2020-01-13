@@ -3216,7 +3216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   width: 1000
-  height: 60
+  height: 80
   distance: 0
   space: 0
   Grass: {fileID: 11400000, guid: 205ebb8107428a4488dc407c576a5e65, type: 2}
@@ -3225,6 +3225,7 @@ MonoBehaviour:
   Diamond: {fileID: 11400000, guid: eae41e261b1761546af410a0eaf03145, type: 2}
   Coal: {fileID: 11400000, guid: 6014927b1d19fe24b9e1a0dd20bef989, type: 2}
   Log: {fileID: 11400000, guid: 4443fd0acaddebf438ae1e2685f9ef5d, type: 2}
+  Tree: {fileID: 11400000, guid: cd12c510d1501c144a1d987652c6c907, type: 2}
   TileMap: {fileID: 1564087826}
   heightpoint: 0
   heightpoint2: 0
@@ -4419,7 +4420,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 1.5, y: 7.5, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0

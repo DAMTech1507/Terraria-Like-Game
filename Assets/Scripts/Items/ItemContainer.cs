@@ -84,6 +84,7 @@ namespace DapperDino.Items
                             itemSlot.quantity -= itemSlots[i].quantity;
 
                             itemSlots[i] = new ItemSlot();
+                            OnItemsUpdated.Invoke();
                         }
                         else
                         {

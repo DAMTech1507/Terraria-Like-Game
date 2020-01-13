@@ -22,9 +22,11 @@ public class PlayerMove2 : MonoBehaviour {
 	
 	public Hotbar hotbar;
 	public Inventory inventory;
+	ItemContainer itemContainer;
 
 	void Start () {
 		TileMap = FindObjectOfType<Tilemap>();
+		itemContainer = inventory.ItemContainer;
 	}
 
 	// Update is called once per frame
@@ -48,16 +50,18 @@ public class PlayerMove2 : MonoBehaviour {
 		if (Input.GetButtonDown("Fire1")){
 			if(MouseDistance < 11.5){
 			string Tilename = TileMap.GetTile(TileMap.WorldToCell(mousePos)).name;
-			TileMap.SetTile(TileMap.WorldToCell(mousePos), null);
-			Debug.Log(Tilename);
+			if(Tilename != null){
+				TileMap.SetTile(TileMap.WorldToCell(mousePos), null);
+				Debug.Log(Tilename);
 
-			string[] GetTiles;
-			GetTiles = AssetDatabase.FindAssets($"{Tilename}", new[] {"Assets/Resources/Items"});
+				string[] GetTiles;
+				GetTiles = AssetDatabase.FindAssets($"{Tilename}", new[] {"Assets/Resources/Items"});
 
-			string itemPath = AssetDatabase.GUIDToAssetPath(GetTiles[0]); 
-			InventoryItem item = (InventoryItem)AssetDatabase.LoadAssetAtPath(itemPath, typeof(InventoryItem));
+				string itemPath = AssetDatabase.GUIDToAssetPath(GetTiles[0]); 
+				InventoryItem item = (InventoryItem)AssetDatabase.LoadAssetAtPath(itemPath, typeof(InventoryItem));
 
-			inventory.Add(new ItemSlot(item, 1));
+				itemContainer.AddItem(new ItemSlot(item, 1));
+			}
 			}
 		}
 		
@@ -65,14 +69,16 @@ public class PlayerMove2 : MonoBehaviour {
 			if(hotbar.selected.SlotItem is InventoryItem inventoryItem){
 				if(inventory.ItemContainer.HasItem(inventoryItem)){
 					if(MouseDistance < 11.5){
-					string[] GetTiles;
-					GetTiles = AssetDatabase.FindAssets($"{PlaceBlock.name}", new[] {"Assets/Resources/Items"});
+						string[] GetTiles;
+						GetTiles = AssetDatabase.FindAssets($"{PlaceBlock.name}", new[] {"Assets/Resources/Items"});
 
-					string itemPath = AssetDatabase.GUIDToAssetPath(GetTiles[0]); 
-					InventoryItem item = (InventoryItem)AssetDatabase.LoadAssetAtPath(itemPath, typeof(InventoryItem));
-
-					TileMap.SetTile(TileMap.WorldToCell(mousePos), PlaceBlock);
-					inventory.Remove(new ItemSlot(item, 1));
+						string itemPath = AssetDatabase.GUIDToAssetPath(GetTiles[0]); 
+						InventoryItem item = (InventoryItem)AssetDatabase.LoadAssetAtPath(itemPath, typeof(InventoryItem));
+						
+						if(TileMap.GetTile(TileMap.WorldToCell(mousePos)) == null){
+							TileMap.SetTile(TileMap.WorldToCell(mousePos), PlaceBlock);
+							itemContainer.RemoveItem(new ItemSlot(item, 1));
+						}
 					}
 				}
 			}
