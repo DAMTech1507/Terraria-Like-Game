@@ -60,8 +60,8 @@ public class Generate : MonoBehaviour
             {
                 TileMap.SetTile(Vector3Int.FloorToInt(new Vector3(w, j)), Dirt);
             }
-            if(randomAmount >= 20){
-                TileMap.SetTile(Vector3Int.FloorToInt(new Vector3(w, distance)), Tree);
+            if(randomAmount <= 20){
+                TileMap.SetTile(Vector3Int.FloorToInt(new Vector3(w, distance + 1)), Tree);
             }
             TileMap.SetTile(Vector3Int.FloorToInt(new Vector3(w, distance)), Grass);
         }

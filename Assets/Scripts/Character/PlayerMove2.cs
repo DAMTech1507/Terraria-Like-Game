@@ -70,8 +70,11 @@ public class PlayerMove2 : MonoBehaviour {
 				if(inventory.ItemContainer.HasItem(inventoryItem)){
 					if(MouseDistance < 11.5){
 						string[] GetTiles;
+						if(PlaceBlock.name == "log"){
+							GetTiles = AssetDatabase.FindAssets("Tree", new[] {"Assets/Resources/Items"});
+						} else {
 						GetTiles = AssetDatabase.FindAssets($"{PlaceBlock.name}", new[] {"Assets/Resources/Items"});
-
+						}
 						string itemPath = AssetDatabase.GUIDToAssetPath(GetTiles[0]); 
 						InventoryItem item = (InventoryItem)AssetDatabase.LoadAssetAtPath(itemPath, typeof(InventoryItem));
 						
