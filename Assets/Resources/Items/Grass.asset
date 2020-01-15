@@ -18,3 +18,4 @@ MonoBehaviour:
   rarity: {fileID: 11400000, guid: a5786ee2829d7404ba6687f1b7ea8493, type: 2}
   sellPrice: 0
   maxStack: 99
+  id: 1

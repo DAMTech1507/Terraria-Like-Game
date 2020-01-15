@@ -19,12 +19,12 @@ public class CraftingRecipe : ScriptableObject
 
     public Inventory inventory;
 
-	public bool CanCraft(IItemContainer itemContainer)
+	public bool CanCraft()
 	{
-		return HasMaterials(itemContainer);
+		return HasMaterials();
 	}
 
-	private bool HasMaterials(IItemContainer itemContainer)
+	private bool HasMaterials()
 	{
 		foreach (ItemAmount itemAmount in Materials)
 		{
@@ -38,30 +38,30 @@ public class CraftingRecipe : ScriptableObject
 	}
 
 
-	public void Craft(IItemContainer itemContainer)
+	public void Craft()
 	{
-		RemoveMaterials(itemContainer);
-		AddResults(itemContainer);
+		RemoveMaterials();
+		AddResults();
 	}
 
-	private void RemoveMaterials(IItemContainer itemContainer)
+	private void RemoveMaterials()
 	{
 		foreach (ItemAmount itemAmount in Materials)
 		{
 			for (int i = 0; i < itemAmount.Amount; i++)
 			{
-				itemContainer.RemoveItem(new ItemSlot(itemAmount.Item , 1));
+				inventory.ItemContainer.RemoveItem(new ItemSlot(itemAmount.Item , 1));
 			}
 		}
 	}
 
-	private void AddResults(IItemContainer itemContainer)
+	private void AddResults()
 	{
 		foreach (ItemAmount itemAmount in Results)
 		{
 			for (int i = 0; i < itemAmount.Amount; i++)
 			{
-				itemContainer.AddItem(new ItemSlot(itemAmount.Item, 1));
+				inventory.ItemContainer.AddItem(new ItemSlot(itemAmount.Item, 1));
 			}
 		}
 	}

@@ -18,4 +18,5 @@ MonoBehaviour:
   rarity: {fileID: 11400000, guid: d8f63546c5000cd4a9f6610d53a6427a, type: 2}
   sellPrice: 3
   maxStack: 99
+  id: 6
   useText: Used for smelting

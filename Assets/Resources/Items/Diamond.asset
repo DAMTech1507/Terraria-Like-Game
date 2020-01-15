@@ -18,4 +18,5 @@ MonoBehaviour:
   rarity: {fileID: 11400000, guid: 4ff3bb7694c35e24a83a8079a7001783, type: 2}
   sellPrice: 1
   maxStack: 99
+  id: 5
   useText: MINE DIAMONDS

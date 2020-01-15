@@ -98,10 +98,15 @@ namespace DapperDino.Items
 
                                 return;
                             }
+                             OnItemsUpdated.Invoke();
                         }
+                         OnItemsUpdated.Invoke();
                     }
+                     OnItemsUpdated.Invoke();
                 }
+                 OnItemsUpdated.Invoke();
             }
+             OnItemsUpdated.Invoke();
         }
 
         public void RemoveAt(int slotIndex)

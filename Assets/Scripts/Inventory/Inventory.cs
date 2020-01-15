@@ -22,7 +22,6 @@ namespace DapperDino.Items
         public void Remove(ItemSlot itemSlot)
         {
             ItemContainer.RemoveItem(itemSlot);
-            ItemContainer.OnItemsUpdated.Invoke();
         
         }
     }
