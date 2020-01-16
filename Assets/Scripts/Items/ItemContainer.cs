@@ -163,6 +163,21 @@ namespace DapperDino.Items
             return false;
         }
 
+        public void UpdatedRemove(InventoryItem item, int quantity){
+            for (int i = 0; i < itemSlots.Length; i++)
+            {
+                if (itemSlots[i].item == null) { continue; }
+                if (itemSlots[i].item != item) { continue; }
+                if (itemSlots[i].quantity == 1){
+                    RemoveAt(i);
+                }
+
+                itemSlots[i].quantity -= quantity;
+                OnItemsUpdated.Invoke();
+                return;
+            }
+        }
+
         public int GetTotalQuantity(InventoryItem item)
         {
             int totalCount = 0;

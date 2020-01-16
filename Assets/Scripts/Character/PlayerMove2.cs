@@ -67,7 +67,7 @@ public class PlayerMove2 : MonoBehaviour {
 		
 		if (Input.GetButtonDown("Fire2")){
 			if(hotbar.selected.SlotItem is InventoryItem inventoryItem){
-				if(inventory.ItemContainer.HasItem(inventoryItem)){
+				if(itemContainer.HasItem(inventoryItem)){
 					if(MouseDistance < 11.5){
 						string[] GetTiles;
 						if(PlaceBlock.name == "log"){
@@ -80,7 +80,7 @@ public class PlayerMove2 : MonoBehaviour {
 						
 						if(TileMap.GetTile(TileMap.WorldToCell(mousePos)) == null){
 							TileMap.SetTile(TileMap.WorldToCell(mousePos), PlaceBlock);
-							itemContainer.RemoveItem(new ItemSlot(item, 1));
+							itemContainer.UpdatedRemove(item, 1);
 						}
 					}
 				}
