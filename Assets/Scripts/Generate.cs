@@ -18,7 +18,8 @@ public class Generate : MonoBehaviour
     public Tile Log;
     public Tile Tree;
 
-    public Tilemap TileMap;
+    public Tilemap FrontMap;
+    public Tilemap BGMap;
 
     public float heightpoint;
     public float heightpoint2;
@@ -45,25 +46,25 @@ public class Generate : MonoBehaviour
             {
                 randomAmount = Random.Range(1, 500);
                 if(randomAmount <= 25 && randomAmount > 1){
-                    TileMap.SetTile(Vector3Int.FloorToInt(new Vector3(w, j)), Coal);continue;
+                    FrontMap.SetTile(Vector3Int.FloorToInt(new Vector3(w, j)), Coal);continue;
                 }
                 
                 else{
                     if(randomAmount == 1){
-                        TileMap.SetTile(Vector3Int.FloorToInt(new Vector3(w, j)), Diamond); continue;
+                        FrontMap.SetTile(Vector3Int.FloorToInt(new Vector3(w, j)), Diamond); continue;
                     }
-                    TileMap.SetTile(Vector3Int.FloorToInt(new Vector3(w, j)), Stone);
+                    FrontMap.SetTile(Vector3Int.FloorToInt(new Vector3(w, j)), Stone);
                 }
             }
  
             for (int j = stonespace; j < distance; j++)
             {
-                TileMap.SetTile(Vector3Int.FloorToInt(new Vector3(w, j)), Dirt);
+                FrontMap.SetTile(Vector3Int.FloorToInt(new Vector3(w, j)), Dirt);
             }
             if(randomAmount <= 20){
-                TileMap.SetTile(Vector3Int.FloorToInt(new Vector3(w, distance + 1)), Tree);
+                BGMap.SetTile(Vector3Int.FloorToInt(new Vector3(w, distance + 1)), Tree);
             }
-            TileMap.SetTile(Vector3Int.FloorToInt(new Vector3(w, distance)), Grass);
+            FrontMap.SetTile(Vector3Int.FloorToInt(new Vector3(w, distance)), Grass);
         }
     }
 }
