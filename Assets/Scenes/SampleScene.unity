@@ -4006,8 +4006,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 632614659}
   runSpeed: 40
-  TileMap: {fileID: 0}
+  TileMap1: {fileID: 1564087826}
+  TileMap2: {fileID: 404103424}
   PlaceBlock: {fileID: 11400000, guid: c36d335ad015add4bac4bf281ce0661d, type: 2}
+  WorldTileItems:
+  - Coal
+  - Diamond
+  - Dirt
+  - Grass
+  - Stone
+  - Wood Planks
   hotbar: {fileID: 504023252}
   inventory: {fileID: 11400000, guid: 1cbbd92b6cfc0cd4c970e31f331c1916, type: 2}
 --- !u!224 &644917047 stripped
@@ -6524,7 +6532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f3cc190ebe6d7a47b12521da3da4065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 1000
+  width: 500
   height: 60
   distance: 0
   space: 0

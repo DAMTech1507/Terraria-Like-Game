@@ -10,10 +10,11 @@ public class PlayerMove2 : MonoBehaviour {
 	public CharacterController2D controller;
 
 	public float runSpeed = 40f;
-	public Tilemap TileMap;
+	public Tilemap TileMap1;
+	public Tilemap TileMap2;
 
 
-    Vector3 mousePos;
+	Vector3 mousePos;
 	float horizontalMove = 0f;
 	bool jump = false;
 	bool crouch = false;
@@ -25,7 +26,6 @@ public class PlayerMove2 : MonoBehaviour {
 	ItemContainer itemContainer;
 
 	void Start () {
-		TileMap = FindObjectOfType<Tilemap>();
 		itemContainer = inventory.ItemContainer;
 	}
 
@@ -49,19 +49,37 @@ public class PlayerMove2 : MonoBehaviour {
 		
 		if (Input.GetButtonDown("Fire1")){
 			if(MouseDistance < 11.5){
-			string Tilename = TileMap.GetTile(TileMap.WorldToCell(mousePos)).name;
-			if(Tilename != null){
-				TileMap.SetTile(TileMap.WorldToCell(mousePos), null);
-				Debug.Log(Tilename);
+			string Tilename = TileMap1.GetTile(TileMap1.WorldToCell(mousePos)).name;
+				if(Tilename == null)
+				{
+					Tilename = TileMap2.GetTile(TileMap2.WorldToCell(mousePos)).name;
 
-				string[] GetTiles;
-				GetTiles = AssetDatabase.FindAssets($"{Tilename}", new[] {"Assets/Resources/Items"});
 
-				string itemPath = AssetDatabase.GUIDToAssetPath(GetTiles[0]); 
-				InventoryItem item = (InventoryItem)AssetDatabase.LoadAssetAtPath(itemPath, typeof(InventoryItem));
+						TileMap2.SetTile(TileMap2.WorldToCell(mousePos), null);
+						Debug.Log(Tilename);
 
-				itemContainer.AddItem(new ItemSlot(item, 1));
-			}
+						string[] GetTiles;
+						GetTiles = AssetDatabase.FindAssets($"{Tilename}", new[] { "Assets/Resources/Items" });
+
+						string itemPath = AssetDatabase.GUIDToAssetPath(GetTiles[0]);
+						InventoryItem item = (InventoryItem)AssetDatabase.LoadAssetAtPath(itemPath, typeof(InventoryItem));
+
+						itemContainer.AddItem(new ItemSlot(item, 1));
+					
+				}	
+				
+				if (Tilename != null){
+					TileMap1.SetTile(TileMap1.WorldToCell(mousePos), null);
+					Debug.Log(Tilename);
+
+					string[] GetTiles;
+					GetTiles = AssetDatabase.FindAssets($"{Tilename}", new[] {"Assets/Resources/Items"});
+						
+					string itemPath = AssetDatabase.GUIDToAssetPath(GetTiles[0]); 
+					InventoryItem item = (InventoryItem)AssetDatabase.LoadAssetAtPath(itemPath, typeof(InventoryItem));
+
+					itemContainer.AddItem(new ItemSlot(item, 1));
+				}
 			}
 		}
 		
@@ -78,8 +96,8 @@ public class PlayerMove2 : MonoBehaviour {
 						string itemPath = AssetDatabase.GUIDToAssetPath(GetTiles[0]); 
 						InventoryItem item = (InventoryItem)AssetDatabase.LoadAssetAtPath(itemPath, typeof(InventoryItem));
 						
-						if(TileMap.GetTile(TileMap.WorldToCell(mousePos)) == null){
-							TileMap.SetTile(TileMap.WorldToCell(mousePos), PlaceBlock);
+						if(TileMap1.GetTile(TileMap1.WorldToCell(mousePos)) == null){
+							TileMap1.SetTile(TileMap1.WorldToCell(mousePos), PlaceBlock);
 							itemContainer.UpdatedRemove(item, 1);
 						}
 					}
