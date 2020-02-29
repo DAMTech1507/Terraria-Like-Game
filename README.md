@@ -4,4 +4,10 @@ Terraria like game made in unity
 __CHANGE LOG__
 ==============
 
-Fixed roboto fonts for uploading to github as old file size exceeded 100mb
+Added a Main Menu, Still WIP, will finish once save system is working
+
+
+__LINKS__
+=========
+
+[Trello](https://trello.com/b/1oxoPiGj/terraria-like-game)
