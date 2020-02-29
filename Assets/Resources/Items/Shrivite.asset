@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1b41e7e9ccdd344eaae014e0deb8fd3, type: 3}
-  m_Name: Diamond
+  m_Name: Shrivite
   m_EditorClassIdentifier: 
-  name: Diamond
+  name: Shrivite
   icon: {fileID: 21300000, guid: 87954a9ae953bda488522e63cf3670cf, type: 3}
   PlaceTile: {fileID: 0}
   rarity: {fileID: 11400000, guid: 4ff3bb7694c35e24a83a8079a7001783, type: 2}
   sellPrice: 1
   maxStack: 99
   id: 5
-  useText: MINE DIAMONDS
+  useText: 
