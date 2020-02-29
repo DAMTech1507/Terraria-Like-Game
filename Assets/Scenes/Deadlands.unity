@@ -4009,13 +4009,6 @@ MonoBehaviour:
   TileMap1: {fileID: 1564087826}
   TileMap2: {fileID: 404103424}
   PlaceBlock: {fileID: 11400000, guid: c36d335ad015add4bac4bf281ce0661d, type: 2}
-  WorldTileItems:
-  - Coal
-  - Diamond
-  - Dirt
-  - Grass
-  - Stone
-  - Wood Planks
   hotbar: {fileID: 504023252}
   inventory: {fileID: 11400000, guid: 1cbbd92b6cfc0cd4c970e31f331c1916, type: 2}
 --- !u!224 &644917047 stripped
@@ -7330,6 +7323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CraftingRecipes:
   - {fileID: 11400000, guid: 772e72b08efcd4241bed2c66a9f7be9b, type: 2}
+  - {fileID: 11400000, guid: 65210ca9971d99249824bd67f5380efa, type: 2}
 --- !u!114 &1103537162
 MonoBehaviour:
   m_ObjectHideFlags: 0
